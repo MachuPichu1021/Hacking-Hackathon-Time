@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DoctorManager : MonoBehaviour
 {
     private Camera camera;
+    [SerializeField] private GameObject confirmation;
     [SerializeField] private Transform organView;
     [SerializeField] private TMP_Text caption;
     private GameObject[] parts;
+    private string daPart;
     private bool selecting;
 
     void Start()
@@ -47,7 +50,22 @@ public class DoctorManager : MonoBehaviour
 
     public void select(string part)
     {
-        GameManager.conditions.Add(part);
+        daPart = part;
+        confirmation.SetActive(true);
+    }
 
+    public void cancel()
+    {
+        confirmation.SetActive(false);
+    }
+
+    public void confirm()
+    {
+        GameManager.conditions.Add(daPart);
+        for (int i = 0; i < parts.Length; i++)
+        {
+            parts[i].SetActive(false);
+        }
+        confirmation.SetActive(false);
     }
 }
