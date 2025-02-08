@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef873b2ba4437b54794771d4b8a83384, type: 3}
+  m_Name: Test Dialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+  - 'Test Dialogue!
+
+    This is, a new line!'
+  - 'Second page of dialogue????
+
+    Goodbye.'
+  responses:
+  - responseText: Yes
+    dialogueObject: {fileID: 11400000, guid: ac11722e249d7364fb647c89be464116, type: 2}
+  - responseText: No
+    dialogueObject: {fileID: 11400000, guid: 0e5d20491e030ea44906a0accd358d3c, type: 2}
