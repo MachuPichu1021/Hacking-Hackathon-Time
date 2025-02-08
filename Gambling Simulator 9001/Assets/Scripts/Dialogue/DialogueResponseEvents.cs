@@ -7,7 +7,6 @@ public class DialogueResponseEvents : MonoBehaviour
 {
     [SerializeField] private DialogueObject dialogueObject;
     public DialogueObject DialogueObject { get => dialogueObject; }
-
     [SerializeField] private ResponseEvent[] responseEvents;
     public ResponseEvent[] ResponseEvents { get => responseEvents; }
 
