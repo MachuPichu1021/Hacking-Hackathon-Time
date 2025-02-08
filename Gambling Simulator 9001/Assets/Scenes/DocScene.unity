@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 572077969}
   - component: {fileID: 572077968}
   - component: {fileID: 572077967}
+  - component: {fileID: 572077970}
   m_Layer: 5
   m_Name: Liver
   m_TagString: Untagged
@@ -408,7 +409,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 572077968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078157437}
+        m_TargetAssemblyTypeName: DoctorManager, Assembly-CSharp
+        m_MethodName: select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Liver
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &572077968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +460,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572077965}
   m_CullTransparentMesh: 1
+--- !u!114 &572077970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572077965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9619bc5c065654cbc084bf8cccd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &673459840
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +484,7 @@ GameObject:
   - component: {fileID: 673459844}
   - component: {fileID: 673459843}
   - component: {fileID: 673459842}
+  - component: {fileID: 673459845}
   m_Layer: 5
   m_Name: Eye
   m_TagString: Untagged
@@ -529,7 +555,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673459843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078157437}
+        m_TargetAssemblyTypeName: DoctorManager, Assembly-CSharp
+        m_MethodName: select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Eye
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &673459843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +606,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673459840}
   m_CullTransparentMesh: 1
+--- !u!114 &673459845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673459840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9619bc5c065654cbc084bf8cccd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692432080
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +630,7 @@ GameObject:
   - component: {fileID: 692432084}
   - component: {fileID: 692432083}
   - component: {fileID: 692432082}
+  - component: {fileID: 692432085}
   m_Layer: 5
   m_Name: Leg
   m_TagString: Untagged
@@ -650,7 +701,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 692432083}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078157437}
+        m_TargetAssemblyTypeName: DoctorManager, Assembly-CSharp
+        m_MethodName: select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Leg
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &692432083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,6 +752,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692432080}
   m_CullTransparentMesh: 1
+--- !u!114 &692432085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692432080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9619bc5c065654cbc084bf8cccd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &738407676
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +776,7 @@ GameObject:
   - component: {fileID: 738407680}
   - component: {fileID: 738407679}
   - component: {fileID: 738407678}
+  - component: {fileID: 738407681}
   m_Layer: 5
   m_Name: Kidney
   m_TagString: Untagged
@@ -771,7 +847,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 738407679}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078157437}
+        m_TargetAssemblyTypeName: DoctorManager, Assembly-CSharp
+        m_MethodName: select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Kidney
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &738407679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,6 +898,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738407676}
   m_CullTransparentMesh: 1
+--- !u!114 &738407681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738407676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9619bc5c065654cbc084bf8cccd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &906106300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1269,7 @@ GameObject:
   - component: {fileID: 1204672219}
   - component: {fileID: 1204672218}
   - component: {fileID: 1204672217}
+  - component: {fileID: 1204672220}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Untagged
@@ -1239,7 +1340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1204672218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078157437}
+        m_TargetAssemblyTypeName: DoctorManager, Assembly-CSharp
+        m_MethodName: select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hand
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1204672218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,6 +1391,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204672215}
   m_CullTransparentMesh: 1
+--- !u!114 &1204672220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204672215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9619bc5c065654cbc084bf8cccd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1588817117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,8 +1415,9 @@ GameObject:
   - component: {fileID: 1588817121}
   - component: {fileID: 1588817120}
   - component: {fileID: 1588817119}
+  - component: {fileID: 1588817122}
   m_Layer: 5
-  m_Name: Blut
+  m_Name: Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1360,7 +1486,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588817120}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078157437}
+        m_TargetAssemblyTypeName: DoctorManager, Assembly-CSharp
+        m_MethodName: select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Blood
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1588817120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,6 +1537,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588817117}
   m_CullTransparentMesh: 1
+--- !u!114 &1588817122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588817117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9619bc5c065654cbc084bf8cccd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1840540381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1561,7 @@ GameObject:
   - component: {fileID: 1840540385}
   - component: {fileID: 1840540384}
   - component: {fileID: 1840540383}
+  - component: {fileID: 1840540386}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -1481,7 +1632,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1840540384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078157437}
+        m_TargetAssemblyTypeName: DoctorManager, Assembly-CSharp
+        m_MethodName: select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Heart
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1840540384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,6 +1683,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840540381}
   m_CullTransparentMesh: 1
+--- !u!114 &1840540386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840540381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9619bc5c065654cbc084bf8cccd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1903630966
 GameObject:
   m_ObjectHideFlags: 0
