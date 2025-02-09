@@ -39,7 +39,7 @@ public class DoctorManager : MonoBehaviour
         {
             selecting = false;
             organView.gameObject.SetActive(true);
-            caption.text = "Choose one.";
+            caption.text = "Choose one to sacrifice.";
         }
     }
 
