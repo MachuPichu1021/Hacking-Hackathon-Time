@@ -38,6 +38,7 @@ public class DialogueUI : MonoBehaviour
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
             string dialogue = dialogueObject.Dialogue[i];
+            textLabel.font = dialogueObject.Fonts[i];
             yield return RunTypingEffect(dialogue);
 
             textLabel.text = dialogue;

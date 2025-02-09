@@ -78,6 +78,7 @@ public class BlackjackManager : MonoBehaviour
     public void Stand()
     {
         dealerHand.Cards[0].Show();
+        dealerHand.UpdateCardList();
         StartCoroutine(DealerTurn());
     }
 
