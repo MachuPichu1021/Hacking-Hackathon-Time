@@ -30,5 +30,7 @@ public class EndOfDayManager : MonoBehaviour
         }
 
         dayText.color = endColor;
+        yield return new WaitForSeconds(0.75f);
+        GameManager.instance.LoadScene(1);
     }
 }

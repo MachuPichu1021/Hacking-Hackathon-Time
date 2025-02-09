@@ -9,20 +9,9 @@ public class SpawnKey : MonoBehaviour
     [SerializeField] private float timeRemaining = 0f;
     [SerializeField] private float spawnTime = 5f;
     [SerializeField] private GameObject keyPrefab;
-    private Key key;
-    [SerializeField] private float vignetteIntensity = 0f;
-    private Vignette vignette;
+    private List<Key> keys = new List<Key>();
 
-
-    private void Start()
-    {
-        Volume volume = FindObjectOfType<Volume>();
-            
-        if (volume != null && volume.profile.TryGet(out Vignette vignette))
-        {
-            this.vignette = vignette;
-        }
-    }
+    private float sleepiness = 0;
 
     private void Update()
     {
@@ -30,19 +19,27 @@ public class SpawnKey : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
         }
-        else
+        else 
         {
             timeRemaining = spawnTime;
-            Vector2 vector = new Vector2(UnityEngine.Random.Range(-2, 2), UnityEngine.Random.Range(-2, 2));
-            key = Instantiate(keyPrefab, vector, Quaternion.identity).GetComponent<Key>();
-            
+            Vector2 vector = new Vector2(Random.Range(-2, 2), UnityEngine.Random.Range(-2, 2));
+            Key key = Instantiate(keyPrefab, vector, Quaternion.identity).GetComponent<Key>();
+            keys.Add(key);
+            print(keys.Count);
         }
 
-        if (Input.GetKeyDown(key.KeyToPress) && key.gameObject != null)
+        if (keys.Count > 0 && Input.inputString != "" && Input.anyKeyDown)
         {
-            Destroy(key.gameObject);
-            vignetteIntensity += 0.1f;
-            this.vignette.intensity.value += vignetteIntensity;
+            Key keyPressed = keys.Find(k => k.KeyToPress == (KeyCode)System.Enum.Parse(typeof(KeyCode), Input.inputString[0].ToString().ToUpper()));
+            if (keyPressed != null)
+            {
+                Destroy(keyPressed.gameObject);
+                keys.RemoveAll(k => k.gameObject == null);
+                sleepiness += 0.1f;
+            }
         }
+
+        if (sleepiness >= 1)
+            GameManager.instance.LoadScene(2);
     }
 }
