@@ -10,8 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef873b2ba4437b54794771d4b8a83384, type: 3}
-  m_Name: Doctor Dialogue
+  m_Name: Nothing 2
   m_EditorClassIdentifier: 
-  dialogue: []
-  fonts: []
-  responses: []
+  dialogue:
+  - "Don\u2019t give me the silent treatment please, I just want to talk about your
+    day. "
+  - "Won\u2019t you speak? Say something!"
+  fonts:
+  - {fileID: 0}
+  - {fileID: 0}
+  responses:
+  - responseText: ...
+    dialogueObject: {fileID: 11400000, guid: e4ffba6d6725f0d4582355e75d62ab6b, type: 2}

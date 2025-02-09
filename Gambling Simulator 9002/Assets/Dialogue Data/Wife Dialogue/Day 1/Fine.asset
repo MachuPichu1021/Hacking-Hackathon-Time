@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef873b2ba4437b54794771d4b8a83384, type: 3}
+  m_Name: Fine
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Oh. That\u2019s\u2026 that\u2019s good. "
+  - 'Well, is there anything you want to talk about? '
+  fonts:
+  - {fileID: 0}
+  - {fileID: 0}
+  responses:
+  - responseText: No.
+    dialogueObject: {fileID: 11400000, guid: f57aac4f8e72e0c43b1079844bd1ec81, type: 2}
