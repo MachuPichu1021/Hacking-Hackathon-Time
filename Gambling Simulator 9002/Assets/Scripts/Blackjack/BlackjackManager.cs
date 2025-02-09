@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class BlackjackManager : MonoBehaviour
 {
+    private GameManager instance;
     [SerializeField] private Card[] initDeck;
     private Stack<Card> deck;
 
     [SerializeField] private Hand playerHand;
     [SerializeField] private Hand dealerHand;
+    private KeyCode hit = KeyCode.E;
+    private KeyCode stand = KeyCode.Space;
+    private KeyCode Doubled = KeyCode.D;
 
     private void Start()
     {
@@ -20,11 +24,14 @@ public class BlackjackManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (instance.isHandDebuff)
+            instance.HandDebuff(ref hit, ref stand, ref Doubled);
+        
+        if (Input.GetKeyDown(hit))
             Hit();
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(stand))
             Stand();
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(Doubled))
             Double();
     }
 
