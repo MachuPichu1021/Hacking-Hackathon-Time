@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class BlackjackManager : MonoBehaviour
 {
-    private GameManager instance;
     [SerializeField] private Card[] initDeck;
     [SerializeField] private TMP_Text moneyDisp;
     private Stack<Card> deck;
@@ -26,9 +25,9 @@ public class BlackjackManager : MonoBehaviour
 
     private void Update()
     {
-        moneyDisp.text = "$" + GameManager.money;
-        if (instance.isHandDebuff)
-            instance.HandDebuff(ref hit, ref stand, ref Doubled);
+        moneyDisp.text = "$" + GameManager.instance.Money;
+        /*if (instance.isHandDebuff)
+            instance.HandDebuff(ref hit, ref stand, ref Doubled);*/
         
         if (Input.GetKeyDown(hit))
             Hit();
@@ -127,14 +126,14 @@ public class BlackjackManager : MonoBehaviour
 
     private void OnLoss()
     {
-        GameManager.money -= 1000;
+        //GameManager.money -= 1000;
         print("Loss");
         StartCoroutine(RestartGame());
     }
 
     private void OnWin()
     {
-        GameManager.money += 500;
+        //GameManager.money += 500;
         print("Win");
         StartCoroutine(RestartGame());
     }

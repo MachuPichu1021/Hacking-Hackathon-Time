@@ -15,7 +15,5 @@ MonoBehaviour:
   dialogue:
   - Choose. One must go.
   fonts:
-  - {fileID: 0}
-  responses:
-  - responseText: '[Enter The Van]'
-    dialogueObject: {fileID: 0}
+  - {fileID: 11400000, guid: 149c73a5b671431499749fc4373f83af, type: 2}
+  responses: []

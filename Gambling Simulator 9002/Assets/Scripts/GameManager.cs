@@ -1,60 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static ArrayList conditions = new ArrayList();
-    public static int money;
-    public bool isHandDebuff = false;
-    public bool isLegDebuff = false;
-    public bool isKidneyDebuff = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static GameManager instance;
+    [SerializeField] private int money;
+    public int Money { get => money; set => money = value; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private int day;
+    public int Day { get => day; }
 
-    public void LegDebuff(float speed)
+    private void Awake()
     {
-        speed /= 2;
-    }
-
-    public void HandDebuff(float horizontalInput, float verticalInput)
-    {
-        horizontalInput = Input.GetAxisRaw("Vertical");
-        verticalInput = Input.GetAxisRaw("Horizontal");
-    }
-
-    public void HandDebuff(ref KeyCode hit, ref KeyCode stand, ref KeyCode Doubled)
-    {
-        hit = KeyCode.Space;
-        stand = KeyCode.D;
-        Doubled = KeyCode.E;
-    }
-
-    public void KidneyDebuff()
-    {
-        StartCoroutine(Shake());
-    }
-
-    private IEnumerator Shake()
-    {
-        float shakeDuration = 3f;
-        float shakeMagnitude = 75f;
-        
-        while (shakeDuration > 0)
+        if (instance == null)
         {
-            shakeDuration -= Time.deltaTime;
-            Vector2 point = Random.insideUnitCircle * shakeMagnitude;
-            GetComponent<Camera>().transform.localPosition = Vector3.Lerp(GetComponent<Camera>().transform.localPosition, point, Time.deltaTime);
-            yield return null;
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+            Destroy(gameObject);
+    }
+
+    public void EndDay()
+    {
+        day++;
+    }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 }

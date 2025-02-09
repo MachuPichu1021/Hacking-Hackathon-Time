@@ -10,44 +10,41 @@ public class DoctorManager : MonoBehaviour
     private GameManager instance;
     [SerializeField] private GameObject confirmation;
     [SerializeField] private Transform organView;
-    [SerializeField] private TMP_Text caption;
-    private GameObject[] parts;
-    private string daPart;
+    private Part[] parts;
+    Part daPart;
     private bool selecting;
+
+    [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] private DialogueObject text1;
+    [SerializeField] private DialogueObject text2;
 
     void Start()
     {
-        parts = new GameObject[organView.childCount];
+        parts = new Part[organView.childCount];
         for (int i = 0; i < organView.childCount; i++)
         {
-            parts[i] = organView.GetChild(i).gameObject;
+            parts[i] = organView.GetChild(i).GetComponent<Part>();
         }
         camera = GetComponent<Camera>();
         selecting = false;
         camera.orthographicSize = 5;
-        caption.text = "You have failed to meet today's quota.";
+        dialogueUI.ShowDialogue(text1);
     }
 
     private void Update()
     {
         for (int i = 0; i < parts.Length; i++)
         {
-            if (parts[i] != null && GameManager.conditions.Contains(parts[i].name))
-                if (parts[i].name.ToLower() == "hand")
-                    instance.isHandDebuff = true;
-                else if (parts[i].name.ToLower() == "kidney")
-                    instance.isKidneyDebuff = true;
-                else if (parts[i].name.ToLower() == "leg")
-                    instance.isLegDebuff = true;
-                GameObject.Destroy(parts[i]);
+            if (parts[i] != null && PartManager.instance.Conditions.Contains(parts[i]))
+                Destroy(parts[i].gameObject);
         }
         if (selecting)
-            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 1, Time.deltaTime*4);
-        if (selecting && camera.orthographicSize<1.1)
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 1, Time.deltaTime * 4);
+        if (selecting && camera.orthographicSize < 1.1f)
         {
             selecting = false;
             organView.gameObject.SetActive(true);
-            caption.text = "Choose one to sacrifice.";
+            dialogueUI.ShowDialogue(text2);
         }
     }
 
@@ -56,7 +53,7 @@ public class DoctorManager : MonoBehaviour
         selecting = true;
     }
 
-    public void select(string part)
+    public void select(Part part)
     {
         daPart = part;
         confirmation.SetActive(true);
@@ -69,12 +66,13 @@ public class DoctorManager : MonoBehaviour
 
     public void confirm()
     {
-        GameManager.conditions.Add(daPart);
-        GameManager.money += 4000;
+        PartManager.instance.AddCondition(daPart);
+        GameManager.instance.Money += daPart.Money;
         for (int i = 0; i < parts.Length; i++)
         {
-            parts[i].SetActive(false);
+            parts[i].gameObject.SetActive(false);
         }
         confirmation.SetActive(false);
+        GameManager.instance.LoadScene(7);
     }
 }
