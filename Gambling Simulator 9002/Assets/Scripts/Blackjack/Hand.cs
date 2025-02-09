@@ -17,12 +17,14 @@ public class Hand : MonoBehaviour
     public void RemoveNullCards()
     {
         cards.RemoveAll(card => card == null);
+        valueText.gameObject.SetActive(false);
     }
 
     public void UpdateCardList()
     {
         cards = GetComponentsInChildren<Card>().ToList();
         ReformatCards();
+        valueText.gameObject.SetActive(true);
         valueText.text = cards[0].IsHidden ? cards[1].Value + " + ?" : CalculateValue().ToString();
     }
 

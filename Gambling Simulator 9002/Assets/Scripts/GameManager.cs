@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int money;
     public int Money { get => money; set => money = value; }
 
+    [SerializeField] private int quota;
+    public int Quota { get => quota; }
+
     [SerializeField] private int day;
     public int Day { get => day; }
 
@@ -25,7 +28,9 @@ public class GameManager : MonoBehaviour
 
     public void EndDay()
     {
+        money -= quota;
         day++;
+        quota = money + 5000;
     }
 
     public void LoadScene(int index)

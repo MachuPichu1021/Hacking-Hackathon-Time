@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DealerScene.unity
     guid: fd5f5f7361c45cf4ca63285daf7b7b72
   - enabled: 1
-    path: Assets/Scenes/BlackjackTestScene.unity
+    path: Assets/Scenes/BlackjackScene.unity
     guid: 9c461493f7e2f544badb2496f100be28
   - enabled: 1
     path: Assets/Scenes/AlleyScene.unity
