@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private GameManager instance;
     [SerializeField] private float speed;
     [SerializeField] private GameObject camera;
     [SerializeField] private float timeRemaining;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        instance.LegDebuff(speed);
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
     }
@@ -29,7 +31,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            HandDebuff();
+            instance.HandDebuff(horizontalInput, verticalInput);
         }
         
         Vector2 moveInput = new Vector2(horizontalInput, verticalInput).normalized;
@@ -42,40 +44,10 @@ public class Player : MonoBehaviour
         else
         {
             timeRemaining = shakeCooldown;
-            KidneyDebuff();
+            instance.KidneyDebuff();
         }
 
         //animator.SetFloat("Vertical Input", verticalInput);
         //animator.SetFloat("Horizontal Input", horizontalInput);
-    }
-
-    public void LegDebuff()
-    {
-        speed /= 2;
-    }
-
-    public void HandDebuff()
-    {
-        horizontalInput = Input.GetAxisRaw("Vertical");
-        verticalInput = Input.GetAxisRaw("Horizontal");
-    }
-
-    public void KidneyDebuff()
-    {
-        StartCoroutine(Shake());
-    }
-
-    private IEnumerator Shake()
-    {
-        float shakeDuration = 3f;
-        float shakeMagnitude = 75f;
-        
-        while (shakeDuration > 0)
-        {
-            shakeDuration -= Time.deltaTime;
-            Vector2 point = Random.insideUnitCircle * shakeMagnitude;
-            camera.transform.localPosition = Vector3.Lerp(camera.transform.localPosition, point, Time.deltaTime);
-            yield return null;
-        }
     }
 }
