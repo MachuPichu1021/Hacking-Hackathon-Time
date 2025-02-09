@@ -7,6 +7,7 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private GameObject nextTextHint;
 
     private ResponseHandler handler;
     private TypeWriterEffect typeWriter;
@@ -19,7 +20,9 @@ public class DialogueUI : MonoBehaviour
         typeWriter = GetComponent<TypeWriterEffect>();
 
         CloseDialogueBox();
-        ShowDialogue(testDialogue);
+
+        if (testDialogue)
+            ShowDialogue(testDialogue);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
@@ -37,6 +40,7 @@ public class DialogueUI : MonoBehaviour
     {
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
+            nextTextHint.SetActive(false);
             string dialogue = dialogueObject.Dialogue[i];
             textLabel.font = dialogueObject.Fonts[i];
             yield return RunTypingEffect(dialogue);
@@ -46,6 +50,7 @@ public class DialogueUI : MonoBehaviour
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses())
                 break;
 
+            nextTextHint.SetActive(true);
             yield return null;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
@@ -73,5 +78,10 @@ public class DialogueUI : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         textLabel.text = "";
+    }
+
+    public bool IsClosed()
+    {
+        return !dialogueBox.activeInHierarchy;
     }
 }
