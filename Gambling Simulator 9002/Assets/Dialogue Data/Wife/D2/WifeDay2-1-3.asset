@@ -22,6 +22,6 @@ MonoBehaviour:
   - {fileID: 0}
   responses:
   - responseText: Yes, honey.
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 3df3d1d966def914381ff94bdc81f751, type: 2}
   - responseText: ...
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 9f344f6b9fc8e5e4695a128da8cb1df9, type: 2}

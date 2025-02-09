@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: WifeDay2-1-3-2
   m_EditorClassIdentifier: 
   dialogue:
-  - "Thank you. Good night sweetie. I\u2019m going to bed, I\u2019ll see you soon."
+  - Do you understand me?
   fonts:
   - {fileID: 0}
-  responses: []
+  responses:
+  - responseText: Yes, honey.
+    dialogueObject: {fileID: 11400000, guid: 3df3d1d966def914381ff94bdc81f751, type: 2}
+  - responseText: ...
+    dialogueObject: {fileID: 11400000}

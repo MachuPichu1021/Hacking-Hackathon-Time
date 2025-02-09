@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 0}
   responses:
   - responseText: What are you talking about?
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 6058100f7dbabde4e842a2a9f3ed703d, type: 2}
   - responseText: ...
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 0988d82b63b88f74b80cad6cbceefbbf, type: 2}
   - responseText: At the casino.
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 6afcd60c71b3012489fe08000d8e5e5a, type: 2}
