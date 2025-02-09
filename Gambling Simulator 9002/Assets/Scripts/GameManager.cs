@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static ArrayList conditions = new ArrayList();
+    public bool isHandDebuff = false;
+    public bool isLegDebuff = false;
+    public bool isKidneyDebuff = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,13 @@ public class GameManager : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Vertical");
         verticalInput = Input.GetAxisRaw("Horizontal");
+    }
+
+    public void HandDebuff(ref KeyCode hit, ref KeyCode stand, ref KeyCode Doubled)
+    {
+        hit = KeyCode.Space;
+        stand = KeyCode.D;
+        Doubled = KeyCode.E;
     }
 
     public void KidneyDebuff()
