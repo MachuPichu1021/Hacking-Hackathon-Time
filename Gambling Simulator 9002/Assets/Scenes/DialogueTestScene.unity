@@ -244,8 +244,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: bdbf40067c8a70a4e9e64e23adba8fb9, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 1204482937}
   textLabel: {fileID: 2141411394}
-  testDialogue: {fileID: 11400000, guid: 797a88883a72dc149864b1c67af1fc36, type: 2}
+  testDialogue: {fileID: 11400000, guid: 2ceb22ed932ef7a469c7114892420eca, type: 2}
 --- !u!114 &395778677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,10 +632,10 @@ RectTransform:
   m_Father: {fileID: 395778675}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1400, y: 250}
+  m_SizeDelta: {x: -320, y: 250}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &1689191103
 GameObject:
@@ -811,8 +811,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  m_sharedMaterial: {fileID: 2173529532977105938, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
