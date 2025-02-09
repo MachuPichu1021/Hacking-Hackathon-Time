@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef873b2ba4437b54794771d4b8a83384, type: 3}
+  m_Name: Rules Explain
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Blackjack, or 21, is a very simple card game. It's you against me. We want to
+    get our card total as close to 21 as possible.
+  - Going past 21 is called a bust, and if that happens you automatically lose.
+  - You start with 2 cards. If you want to gain an extra card, you can hit. By hitting,
+    you get another card to add to your total.
+  - However, if you like where you're at, you can stand, in which case it will be
+    my turn. I must hit until I get past a soft 17.
+  - You may also double, where you put double your bet (provided you have enough)
+    and gain only 1 extra card. It is then immediately my turn.
+  - 'The cards are worth their numerical value. Jacks, Queens, and Kings are all
+    worth 10. Aces are worth 11 or 1. '
+  - If you win, you get double your bet back. If our values are tied you keep your
+    money.
+  - If you get VERY lucky and get a blackjack, or a 21 on the first two cards dealt,
+    you get 2.5 times your bet back.
+  - Ready to play?
+  fonts:
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  responses:
+  - responseText: Yes.
+    dialogueObject: {fileID: 11400000, guid: b8979515042ba75479ee83876d274290, type: 2}
