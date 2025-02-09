@@ -10,7 +10,10 @@ public class EndOfDayManager : MonoBehaviour
     private void Start()
     {
         GameManager.instance.EndDay();
-        dayText.text = $"Day {GameManager.instance.Day}";
+        if (GameManager.instance.Day == 6)
+            dayText.text = "Fin.";
+        else
+            dayText.text = $"Day {GameManager.instance.Day}";
         StartCoroutine(FadeIn(2));
     }
 
@@ -32,9 +35,12 @@ public class EndOfDayManager : MonoBehaviour
         dayText.color = endColor;
         yield return new WaitForSeconds(0.75f);
 
-        if (GameManager.instance.Day != 5)
-            GameManager.instance.LoadScene(1);
-        else
-            GameManager.instance.LoadScene(3);
+        if (GameManager.instance.Day != 6)
+        {
+            if (GameManager.instance.Day != 5)
+                GameManager.instance.LoadScene(1);
+            else
+                GameManager.instance.LoadScene(3);
+        }
     }
 }
