@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef873b2ba4437b54794771d4b8a83384, type: 3}
+  m_Name: WifeDay2-1-3
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Is that so?
+  - "We went over this, honey. You\u2019re dangerous when you\u2019re gambling."
+  - "I don\u2019t want you going back there again. Do you understand me?"
+  fonts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  responses:
+  - responseText: Yes, honey.
+    dialogueObject: {fileID: 0}
+  - responseText: ...
+    dialogueObject: {fileID: 0}

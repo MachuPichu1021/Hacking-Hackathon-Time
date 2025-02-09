@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class BlackjackManager : MonoBehaviour
 {
+    private GameManager instance;
     [SerializeField] private Card[] initDeck;
+    [SerializeField] private TMP_Text moneyDisp;
     private Stack<Card> deck;
 
     [SerializeField] private Hand playerHand;
     [SerializeField] private Hand dealerHand;
+    private KeyCode hit = KeyCode.E;
+    private KeyCode stand = KeyCode.Space;
+    private KeyCode Doubled = KeyCode.D;
 
     private void Start()
     {
@@ -20,11 +26,15 @@ public class BlackjackManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        moneyDisp.text = "$" + GameManager.money;
+        if (instance.isHandDebuff)
+            instance.HandDebuff(ref hit, ref stand, ref Doubled);
+        
+        if (Input.GetKeyDown(hit))
             Hit();
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(stand))
             Stand();
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(Doubled))
             Double();
     }
 
@@ -117,12 +127,14 @@ public class BlackjackManager : MonoBehaviour
 
     private void OnLoss()
     {
+        GameManager.money -= 1000;
         print("Loss");
         StartCoroutine(RestartGame());
     }
 
     private void OnWin()
     {
+        GameManager.money += 500;
         print("Win");
         StartCoroutine(RestartGame());
     }

@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using TMPro;
 
 public class DoctorManager : MonoBehaviour
 {
     private Camera camera;
+    private GameManager instance;
     [SerializeField] private GameObject confirmation;
     [SerializeField] private Transform organView;
     [SerializeField] private TMP_Text caption;
@@ -31,6 +33,12 @@ public class DoctorManager : MonoBehaviour
         for (int i = 0; i < parts.Length; i++)
         {
             if (parts[i] != null && GameManager.conditions.Contains(parts[i].name))
+                if (parts[i].name.ToLower() == "hand")
+                    instance.isHandDebuff = true;
+                else if (parts[i].name.ToLower() == "kidney")
+                    instance.isKidneyDebuff = true;
+                else if (parts[i].name.ToLower() == "leg")
+                    instance.isLegDebuff = true;
                 GameObject.Destroy(parts[i]);
         }
         if (selecting)
@@ -39,7 +47,7 @@ public class DoctorManager : MonoBehaviour
         {
             selecting = false;
             organView.gameObject.SetActive(true);
-            caption.text = "Choose one.";
+            caption.text = "Choose one to sacrifice.";
         }
     }
 
@@ -62,6 +70,7 @@ public class DoctorManager : MonoBehaviour
     public void confirm()
     {
         GameManager.conditions.Add(daPart);
+        GameManager.money += 4000;
         for (int i = 0; i < parts.Length; i++)
         {
             parts[i].SetActive(false);
