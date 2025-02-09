@@ -6,7 +6,7 @@ using TMPro;
 
 public class Hand : MonoBehaviour
 {
-    private List<Card> cards;
+    private List<Card> cards = new List<Card>();
     public List<Card> Cards { get => cards; private set => cards = value; }
 
     private const float cardWidth = 0.9f;
@@ -26,6 +26,11 @@ public class Hand : MonoBehaviour
         ReformatCards();
         valueText.gameObject.SetActive(true);
         valueText.text = cards[0].IsHidden ? cards[1].Value + " + ?" : CalculateValue().ToString();
+    }
+
+    public void HideValue()
+    {
+        valueText.gameObject.SetActive(false);
     }
 
     public void ReformatCards()

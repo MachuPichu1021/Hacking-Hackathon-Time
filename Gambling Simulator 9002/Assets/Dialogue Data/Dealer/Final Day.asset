@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef873b2ba4437b54794771d4b8a83384, type: 3}
+  m_Name: Final Day
+  m_EditorClassIdentifier: 
+  dialogue:
+  - What the... How did I-?
+  - Welcome back, sir. I see you around here quite often.
+  - What say you and I make a wager? You've seemed down on your luck lately. Why
+    don't you go all in on this hand?
+  - Your wife is upset at you, no? She thinks your gambling is a problem.
+  - How did you know that?
+  - She wouldn't feel that way if you came back with a big win.
+  - What do you say? Are you willing to take a gamble?
+  fonts:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  - {fileID: 11400000, guid: cb68fcadac834e5429aa75a2152c1ead, type: 2}
+  responses:
+  - responseText: ALL IN
+    dialogueObject: {fileID: 0}

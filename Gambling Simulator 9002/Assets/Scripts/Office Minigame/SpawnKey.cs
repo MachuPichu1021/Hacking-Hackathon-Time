@@ -6,13 +6,19 @@ using UnityEngine.Rendering.Universal;
 
 public class SpawnKey : MonoBehaviour
 {
-    [SerializeField] private float timeRemaining = 0f;
-    [SerializeField] private float spawnTime = 3f;
+    private float timeRemaining = 0f;
+    private float spawnTime;
     [SerializeField] private GameObject keyPrefab;
-    [SerializeField] private List<Key> keys = new List<Key>();
+    private List<Key> keys = new List<Key>();
     [SerializeField] GameObject canvas;
 
     private float sleepiness = 0;
+
+    private void Start()
+    {
+        spawnTime = GameManager.instance.Day * 1.25f;
+        timeRemaining = spawnTime;
+    }
 
     private void Update()
     {

@@ -44,6 +44,38 @@ public class BlackjackManager : MonoBehaviour
             stand = KeyCode.E;
             Doubled = KeyCode.Space;
         }
+
+        if (GameManager.instance.Money == 0)
+            GameManager.instance.Money = 2500;
+
+        if (GameManager.instance.Day == 5)
+            StartCoroutine(FinalDayCutscene());
+    }
+
+    private IEnumerator FinalDayCutscene()
+    {
+        startButton.SetActive(false);
+        endButton.SetActive(false);
+        foreach (GameObject button in bettingButtons)
+            button.SetActive(false);
+        moneyDisp.gameObject.SetActive(false);
+        quotaDisp.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(initDeck[51].gameObject, playerHand.transform);
+        Instantiate(initDeck[50].gameObject, playerHand.transform);
+        playerHand.UpdateCardList();
+        playerHand.HideValue();
+
+        Instantiate(initDeck[39].gameObject, dealerHand.transform);
+        Instantiate(initDeck[49].gameObject, dealerHand.transform);
+        dealerHand.UpdateCardList();
+        dealerHand.Cards[0].Hide();
+        dealerHand.HideValue();
+
+        yield return new WaitForSeconds(1f);
+        dealerHand.Cards[0].Show();
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.LoadScene(5);
     }
 
     private void Update()
