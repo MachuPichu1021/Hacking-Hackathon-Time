@@ -8,6 +8,7 @@ public class BlackjackManager : MonoBehaviour
 {
     [SerializeField] private Card[] initDeck;
     [SerializeField] private TMP_Text moneyDisp;
+    [SerializeField] private TMP_Text quotaDisp;
     private Stack<Card> deck;
 
     [SerializeField] private Hand playerHand;
@@ -16,29 +17,50 @@ public class BlackjackManager : MonoBehaviour
     private KeyCode stand = KeyCode.Space;
     private KeyCode Doubled = KeyCode.D;
 
+    [SerializeField] private int bet;
+    public int Bet { get => bet; }
+
+    private bool gameStarted;
+
+    [SerializeField] private GameObject startButton;
+    [SerializeField] private GameObject endButton;
+    [SerializeField] private GameObject[] bettingButtons;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        StartGame();
     }
 
     private void Update()
     {
         moneyDisp.text = "$" + GameManager.instance.Money;
+        quotaDisp.text = "QUOTA: $" + GameManager.instance.Quota;
         /*if (instance.isHandDebuff)
             instance.HandDebuff(ref hit, ref stand, ref Doubled);*/
         
-        if (Input.GetKeyDown(hit))
-            Hit();
-        else if (Input.GetKeyDown(stand))
-            Stand();
-        else if (Input.GetKeyDown(Doubled))
-            Double();
+        if (gameStarted)
+        {
+            if (Input.GetKeyDown(hit))
+                Hit();
+            else if (Input.GetKeyDown(stand))
+                Stand();
+            else if (Input.GetKeyDown(Doubled))
+                Double();
+        }
+        else
+        {
+            if (GameManager.instance.Money <= 0)
+                EndGame();
+        }
     }
 
     public void StartGame()
     {
+        if (bet == 0)
+            return;
+
+        gameStarted = true;
         Shuffle();
         for (int i = 0; i < 2; i++)
         {
@@ -49,17 +71,43 @@ public class BlackjackManager : MonoBehaviour
         dealerHand.UpdateCardList();
 
         if (playerHand.CheckForBlackjack())
-            StartCoroutine(CheckForWinByBlackjack());
+            CheckForWinByBlackjack();
+
+        startButton.SetActive(false);
+        endButton.SetActive(false);
+        foreach (GameObject button in bettingButtons)
+            button.SetActive(false);
     }
 
     public IEnumerator RestartGame()
     {
+        gameStarted = false;
         ClearCards();
         yield return new WaitForEndOfFrame();
         playerHand.RemoveNullCards();
         dealerHand.RemoveNullCards();
 
-        StartGame();
+        startButton.SetActive(true);
+        endButton.SetActive(true);
+        foreach (GameObject button in bettingButtons)
+            button.SetActive(true);
+    }
+
+    public void EndGame()
+    {
+        if (GameManager.instance.Money < GameManager.instance.Quota)
+            GameManager.instance.LoadScene(6);
+        else
+            GameManager.instance.LoadScene(5);
+    }
+
+    public void AddBet(int amt)
+    {
+        if (amt > GameManager.instance.Money)
+            return;
+
+        bet += amt;
+        GameManager.instance.Money -= amt;
     }
 
     public void DealCard(Hand hand)
@@ -81,7 +129,7 @@ public class BlackjackManager : MonoBehaviour
         DealCard(playerHand);
         int value = playerHand.CalculateValue();
         if (value > 21)
-            OnLoss();
+            StartCoroutine(OnLoss());
     }
 
     public void Stand()
@@ -95,7 +143,7 @@ public class BlackjackManager : MonoBehaviour
     {
         Hit();
         if (playerHand.CalculateValue() > 21)
-            OnLoss();
+            StartCoroutine(OnLoss());
         else
             Stand();
     }
@@ -116,42 +164,52 @@ public class BlackjackManager : MonoBehaviour
         {
             int playerValue = playerHand.CalculateValue();
             if (playerValue > value || value > 21)
-                OnWin();
+                StartCoroutine(OnWin());
             else if (value > playerValue && value <= 21)
-                OnLoss();
+                StartCoroutine(OnLoss());
             else
-                OnPush();
+                StartCoroutine(OnPush());
         }
     }
 
-    private void OnLoss()
+    private IEnumerator OnLoss()
     {
-        //GameManager.money -= 1000;
+        yield return new WaitForSeconds(1.5f);
         print("Loss");
         StartCoroutine(RestartGame());
     }
 
-    private void OnWin()
+    private IEnumerator OnWin()
     {
-        //GameManager.money += 500;
+        yield return new WaitForSeconds(1.5f);
+        GameManager.instance.Money += bet * 2;
         print("Win");
         StartCoroutine(RestartGame());
     }
 
-    private void OnPush()
+    private IEnumerator OnWinBlackjack()
     {
+        yield return new WaitForSeconds(1.5f);
+        GameManager.instance.Money += Mathf.RoundToInt(bet * 2.5f);
+        print("Win blackjack");
+        StartCoroutine(RestartGame());
+    }
+
+    private IEnumerator OnPush()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GameManager.instance.Money += bet;
         print("Push");
         StartCoroutine(RestartGame());
     }
 
-    public IEnumerator CheckForWinByBlackjack()
+    public void CheckForWinByBlackjack()
     {
         dealerHand.Cards[0].Show();
-        yield return new WaitForSeconds(1);
         if (dealerHand.CheckForBlackjack())
-            OnPush();
+            StartCoroutine(OnPush());
         else
-            OnWin();
+            StartCoroutine(OnWinBlackjack());
     }
 
     public void Shuffle()

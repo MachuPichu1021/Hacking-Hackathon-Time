@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 235873608847993403, guid: c126ce33d185878429983d083e9ce8df, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 235873608847993403, guid: c126ce33d185878429983d083e9ce8df, type: 3}
       propertyPath: m_AnchorMax.x
@@ -523,7 +523,6 @@ GameObject:
   - component: {fileID: 2078157436}
   - component: {fileID: 2078157435}
   - component: {fileID: 2078157434}
-  - component: {fileID: 2078157437}
   - component: {fileID: 2078157439}
   - component: {fileID: 2078157438}
   m_Layer: 0
@@ -599,23 +598,6 @@ Transform:
   m_Father: {fileID: 1356611698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2078157437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078157433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a08754880392174892f08db25a9a489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  confirmation: {fileID: 0}
-  organView: {fileID: 0}
-  dialogueUI: {fileID: 1097256167}
-  text1: {fileID: 11400000, guid: 2ceb22ed932ef7a469c7114892420eca, type: 2}
-  text2: {fileID: 11400000, guid: dfac430a538658d48b0ce68aa8081261, type: 2}
 --- !u!114 &2078157438
 MonoBehaviour:
   m_ObjectHideFlags: 0

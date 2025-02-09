@@ -21,6 +21,6 @@ public class WifeManager : MonoBehaviour
     private void Update()
     {
         if (dialogueUI.IsClosed() && Time.timeSinceLevelLoad > 1)
-            GameManager.instance.LoadScene(4);
+            GameManager.instance.LoadScene(3);
     }
 }
