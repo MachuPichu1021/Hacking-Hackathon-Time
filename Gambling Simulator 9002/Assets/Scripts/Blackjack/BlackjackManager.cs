@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class BlackjackManager : MonoBehaviour
 {
     private GameManager instance;
     [SerializeField] private Card[] initDeck;
+    [SerializeField] private TMP_Text moneyDisp;
     private Stack<Card> deck;
 
     [SerializeField] private Hand playerHand;
@@ -24,6 +26,7 @@ public class BlackjackManager : MonoBehaviour
 
     private void Update()
     {
+        moneyDisp.text = "$" + GameManager.money;
         if (instance.isHandDebuff)
             instance.HandDebuff(ref hit, ref stand, ref Doubled);
         
@@ -124,12 +127,14 @@ public class BlackjackManager : MonoBehaviour
 
     private void OnLoss()
     {
+        GameManager.money -= 1000;
         print("Loss");
         StartCoroutine(RestartGame());
     }
 
     private void OnWin()
     {
+        GameManager.money += 500;
         print("Win");
         StartCoroutine(RestartGame());
     }

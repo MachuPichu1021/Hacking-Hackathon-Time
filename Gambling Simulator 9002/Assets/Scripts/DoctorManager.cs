@@ -70,6 +70,7 @@ public class DoctorManager : MonoBehaviour
     public void confirm()
     {
         GameManager.conditions.Add(daPart);
+        GameManager.money += 4000;
         for (int i = 0; i < parts.Length; i++)
         {
             parts[i].SetActive(false);

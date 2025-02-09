@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static ArrayList conditions = new ArrayList();
+    public static int money;
     public bool isHandDebuff = false;
     public bool isLegDebuff = false;
     public bool isKidneyDebuff = false;
