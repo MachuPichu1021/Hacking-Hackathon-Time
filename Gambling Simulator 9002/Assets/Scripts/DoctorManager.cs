@@ -6,6 +6,7 @@ using TMPro;
 public class DoctorManager : MonoBehaviour
 {
     private Camera camera;
+    private GameManager instance;
     [SerializeField] private GameObject confirmation;
     [SerializeField] private Transform organView;
     [SerializeField] private TMP_Text caption;
@@ -31,6 +32,12 @@ public class DoctorManager : MonoBehaviour
         for (int i = 0; i < parts.Length; i++)
         {
             if (parts[i] != null && GameManager.conditions.Contains(parts[i].name))
+                if (parts[i].name.ToLower() == "hand")
+                    instance.isHandDebuff = true;
+                else if (parts[i].name.ToLower() == "kidney")
+                    instance.isKidneyDebuff = true;
+                else if (parts[i].name.ToLower() == "leg")
+                    instance.isLegDebuff = true;
                 GameObject.Destroy(parts[i]);
         }
         if (selecting)
