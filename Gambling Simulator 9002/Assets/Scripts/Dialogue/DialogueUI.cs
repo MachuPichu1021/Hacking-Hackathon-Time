@@ -79,4 +79,9 @@ public class DialogueUI : MonoBehaviour
         dialogueBox.SetActive(false);
         textLabel.text = "";
     }
+
+    public bool IsClosed()
+    {
+        return !dialogueBox.activeInHierarchy;
+    }
 }
