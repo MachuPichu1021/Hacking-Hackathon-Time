@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 0}
   responses:
   - responseText: At the casino.
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 6afcd60c71b3012489fe08000d8e5e5a, type: 2}
