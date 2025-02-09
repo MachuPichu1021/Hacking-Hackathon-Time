@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,18 +27,30 @@ public class BlackjackManager : MonoBehaviour
     [SerializeField] private GameObject endButton;
     [SerializeField] private GameObject[] bettingButtons;
 
+    [SerializeField] private GameObject resetBetButton;
+    [SerializeField] private int[] chipValues;
+    [SerializeField] private GameObject[] chipPrefabs;
+    [SerializeField] private Transform chipParent;
+    private List<GameObject> chips = new List<GameObject>();
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+
+        if (PartManager.instance.HasCondition("hand"))
+        {
+            hit = KeyCode.D;
+            stand = KeyCode.E;
+            Doubled = KeyCode.Space;
+        }
     }
 
     private void Update()
     {
         moneyDisp.text = "$" + GameManager.instance.Money;
         quotaDisp.text = "QUOTA: $" + GameManager.instance.Quota;
-        /*if (instance.isHandDebuff)
-            instance.HandDebuff(ref hit, ref stand, ref Doubled);*/
+        
         
         if (gameStarted)
         {
@@ -77,12 +90,14 @@ public class BlackjackManager : MonoBehaviour
         endButton.SetActive(false);
         foreach (GameObject button in bettingButtons)
             button.SetActive(false);
+        resetBetButton.SetActive(false);
     }
 
     public IEnumerator RestartGame()
     {
         gameStarted = false;
         ClearCards();
+        ClearChips();
         yield return new WaitForEndOfFrame();
         playerHand.RemoveNullCards();
         dealerHand.RemoveNullCards();
@@ -108,6 +123,26 @@ public class BlackjackManager : MonoBehaviour
 
         bet += amt;
         GameManager.instance.Money -= amt;
+        Vector2 chipPos = new Vector2(chipParent.position.x, chipParent.position.y + chips.Count * 0.1f);
+        GameObject chip = Instantiate(chipPrefabs[Array.IndexOf(chipValues, amt)], chipPos, Quaternion.identity);
+        chips.Add(chip);
+
+        resetBetButton.SetActive(true);
+    }
+
+    public void ResetBet()
+    {
+        GameManager.instance.Money += bet;
+        bet = 0;
+        ClearChips();
+        resetBetButton.SetActive(false);
+    }
+
+    private void ClearChips()
+    {
+        foreach (GameObject chip in chips)
+            Destroy(chip);
+        chips.Clear();
     }
 
     public void DealCard(Hand hand)
@@ -141,6 +176,9 @@ public class BlackjackManager : MonoBehaviour
 
     public void Double()
     {
+        if (GameManager.instance.Money < bet)
+            return;
+
         Hit();
         if (playerHand.CalculateValue() > 21)
             StartCoroutine(OnLoss());
