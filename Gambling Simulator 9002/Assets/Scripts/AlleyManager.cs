@@ -10,6 +10,12 @@ public class AlleyManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(WaitToLoad());
+    }
+
+    private IEnumerator WaitToLoad()
+    {
+        yield return new WaitForEndOfFrame();
         if (GameManager.instance.Day == 5)
             dialogueUI.ShowDialogue(finalDayText);
         else
@@ -19,8 +25,7 @@ public class AlleyManager : MonoBehaviour
     private void Update()
     {
         if (dialogueUI.IsClosed() && Time.timeSinceLevelLoad > 1)
-        {
             GameManager.instance.LoadScene(7);
-        }
+
     }
 }
