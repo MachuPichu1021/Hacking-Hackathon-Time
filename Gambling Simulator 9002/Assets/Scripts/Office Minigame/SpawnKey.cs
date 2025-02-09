@@ -7,9 +7,10 @@ using UnityEngine.Rendering.Universal;
 public class SpawnKey : MonoBehaviour
 {
     [SerializeField] private float timeRemaining = 0f;
-    [SerializeField] private float spawnTime = 5f;
+    [SerializeField] private float spawnTime = 3f;
     [SerializeField] private GameObject keyPrefab;
-    private List<Key> keys = new List<Key>();
+    [SerializeField] private List<Key> keys = new List<Key>();
+    [SerializeField] GameObject canvas;
 
     private float sleepiness = 0;
 
@@ -21,11 +22,11 @@ public class SpawnKey : MonoBehaviour
         }
         else 
         {
-            timeRemaining = spawnTime;
-            Vector2 vector = new Vector2(Random.Range(-2, 2), UnityEngine.Random.Range(-2, 2));
-            Key key = Instantiate(keyPrefab, vector, Quaternion.identity).GetComponent<Key>();
+            timeRemaining = Random.Range(spawnTime / 2, spawnTime);
+            Vector2 pos = new Vector2(Random.Range(-Screen.width / 4, Screen.width / 4), Random.Range(-Screen.height / 4, Screen.height / 4));
+            Key key = Instantiate(keyPrefab, canvas.transform).GetComponent<Key>();
+            key.transform.localPosition = pos;
             keys.Add(key);
-            print(keys.Count);
         }
 
         if (keys.Count > 0 && Input.inputString != "" && Input.anyKeyDown)
@@ -33,8 +34,8 @@ public class SpawnKey : MonoBehaviour
             Key keyPressed = keys.Find(k => k.KeyToPress == (KeyCode)System.Enum.Parse(typeof(KeyCode), Input.inputString[0].ToString().ToUpper()));
             if (keyPressed != null)
             {
+                keys.Remove(keyPressed);
                 Destroy(keyPressed.gameObject);
-                keys.RemoveAll(k => k.gameObject == null);
                 sleepiness += 0.1f;
             }
         }
