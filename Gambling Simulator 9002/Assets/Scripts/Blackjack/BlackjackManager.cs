@@ -93,11 +93,6 @@ public class BlackjackManager : MonoBehaviour
             else if (Input.GetKeyDown(Doubled))
                 Double();
         }
-        else
-        {
-            if (GameManager.instance.Money <= 0)
-                EndGame();
-        }
     }
 
     public void StartGame()
@@ -155,7 +150,7 @@ public class BlackjackManager : MonoBehaviour
 
         bet += amt;
         GameManager.instance.Money -= amt;
-        Vector2 chipPos = new Vector2(chipParent.position.x, chipParent.position.y + chips.Count * 25f);
+        Vector3 chipPos = new Vector3(chipParent.position.x, chipParent.position.y + chips.Count * 20f);
         GameObject chip = Instantiate(chipPrefabs[Array.IndexOf(chipValues, amt)], chipPos, Quaternion.identity);
         chip.transform.SetParent(chipParent);
         chip.transform.localScale = new Vector3(1, 1, 1);
@@ -248,7 +243,10 @@ public class BlackjackManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         print("Loss");
-        StartCoroutine(RestartGame());
+        if (GameManager.instance.Money <= 0)
+            EndGame();
+        else
+            StartCoroutine(RestartGame());
     }
 
     private IEnumerator OnWin()
