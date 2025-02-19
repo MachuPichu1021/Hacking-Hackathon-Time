@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemAnim : MonoBehaviour
 {
     private float speed;
+    private float initSpeed;
     private int dir;
     private float counter;
     private void Start()
@@ -14,10 +15,12 @@ public class ItemAnim : MonoBehaviour
         else
             dir = 1;
         counter = 0;
-        speed = Random.Range(15f, 20f);
+        initSpeed = Random.Range(15f, 20f);
+        speed = initSpeed;
     }
     void Update()
     {
+        speed *= 1f-(0.01f*Time.deltaTime);
         if (dir == -1)
         {
             transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z - speed * Time.deltaTime));
@@ -29,9 +32,15 @@ public class ItemAnim : MonoBehaviour
             counter += speed*Time.deltaTime;
         }
 
-        if (counter < -30)
+        if (counter < -15)
+        {
             dir = 1;
-        else if (counter > 30)
+            speed = initSpeed;
+        }
+        else if (counter > 15)
+        {    
             dir = -1;
+            speed = initSpeed;
+        }
     }
 }

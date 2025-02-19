@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -121,11 +133,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 43
-        width: 73
-        height: 43
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,18 +153,18 @@ TextureImporter:
       name: chips_1
       rect:
         serializedVersion: 2
-        x: 81
-        y: 42
-        width: 75
-        height: 43
+        x: 50
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3e6f7283580fd7469b4a0b84099deee
+      spriteID: 478154d8f12928d40b0574d16f4bf852
       internalID: -1090627418
       vertices: []
       indices: 
@@ -162,18 +174,18 @@ TextureImporter:
       name: chips_2
       rect:
         serializedVersion: 2
-        x: 164
-        y: 42
-        width: 74
-        height: 43
+        x: 0
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5194232e7f4ed7418ebeeb7d1ff012e
+      spriteID: 3c1889613cfccb14b8b21f5a94aed77c
       internalID: 423326671
       vertices: []
       indices: 
@@ -183,103 +195,19 @@ TextureImporter:
       name: chips_3
       rect:
         serializedVersion: 2
-        x: 247
-        y: 43
-        width: 73
-        height: 42
+        x: 50
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c08db9ae279819c4d97b2450257f3c14
+      spriteID: 3028cc4255e48d44bbb5fb8fd3713e46
       internalID: -819900963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chips_4
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 0
-        width: 73
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26b359f493b56034d9bdf5fc4867c0c9
-      internalID: 658712886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chips_5
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 73
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99f8aa7f569b04047b79cf463f02cac2
-      internalID: 774930520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chips_6
-      rect:
-        serializedVersion: 2
-        x: 122
-        y: 0
-        width: 73
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a24eab45eb295b4d8456e0ae95af8f9
-      internalID: -1189305000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chips_7
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 0
-        width: 74
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6d64e8896f31a14595264750550f8f1
-      internalID: 968747041
       vertices: []
       indices: 
       edges: []
@@ -299,10 +227,6 @@ TextureImporter:
       chips_1: -1090627418
       chips_2: 423326671
       chips_3: -819900963
-      chips_4: 658712886
-      chips_5: 774930520
-      chips_6: -1189305000
-      chips_7: 968747041
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

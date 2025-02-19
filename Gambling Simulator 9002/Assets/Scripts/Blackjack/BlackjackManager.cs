@@ -155,8 +155,10 @@ public class BlackjackManager : MonoBehaviour
 
         bet += amt;
         GameManager.instance.Money -= amt;
-        Vector2 chipPos = new Vector2(chipParent.position.x, chipParent.position.y + chips.Count * 0.1f);
+        Vector2 chipPos = new Vector2(chipParent.position.x, chipParent.position.y + chips.Count * 25f);
         GameObject chip = Instantiate(chipPrefabs[Array.IndexOf(chipValues, amt)], chipPos, Quaternion.identity);
+        chip.transform.SetParent(chipParent);
+        chip.transform.localScale = new Vector3(1, 1, 1);
         chips.Add(chip);
 
         resetBetButton.SetActive(true);
